@@ -1,0 +1,68 @@
+<mat-toolbar class="header">
+  <span>分類帽程式</span>
+  <!-- <form class="example-form"> -->
+      <mat-form-field class="example-full-width">
+          <input matInput
+              placeholder="關鍵字查詢..."
+              (input)="search($event.target.value)"
+              [(ngModel)]="search_keyword">
+      </mat-form-field>
+    <!-- </form> -->
+</mat-toolbar>
+<mat-card class="members">
+    <mat-card-header>
+      <mat-card-title>
+        <span>[尚未分隊的成員]</span>
+        <mat-chip color='primary' selected>單成：{{ single_adults.length }}</mat-chip>
+        <mat-chip color='accent' selected>男女青：{{ young_men.length }}</mat-chip>
+        <mat-chip>領袖：{{ leaders.length }}</mat-chip>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content class='members' style="margin-top:24px;">
+      <mat-chip-list>
+        <mat-chip *ngFor="let mem of members"
+              (click)="clickMember(mem);"
+              color='{{ getBgColor(mem.org) }}'
+              selected
+              matTooltip="{{mem.unit + mem.org}}"
+              >
+              {{ mem.name }}
+          </mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+</mat-card>
+
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <span>[各隊成員]</span>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-divider></mat-divider>
+
+      <mat-card-content class="teams" >
+        <mat-card class='team' *ngFor="let team_no of team_count">
+            <mat-card-header>
+                <mat-card-title>第 {{ team_no }} 組</mat-card-title>
+            </mat-card-header>
+            <mat-divider></mat-divider>
+            <mat-card-content>
+                <mat-chip-list style="display:flex ;">
+                    <mat-chip *ngFor="let mem of team_members[team_no]"
+                          color='{{ getBgColor(mem.org)}}'
+                          selected
+                          [removable]="true"
+                          (removed)="removeMemberFromTeam(mem);"
+                          >
+                          {{ mem.name }}
+                          <mat-icon matChipRemove *ngIf="true">cancel</mat-icon>
+                      </mat-chip>
+                  </mat-chip-list>
+            </mat-card-content>
+        </mat-card>
+      </mat-card-content>
+</mat-card>

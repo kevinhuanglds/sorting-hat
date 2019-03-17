@@ -1,0 +1,44 @@
+mat-toolbar.header {
+  display: flex;
+  justify-content:space-between;
+}
+
+mat-card {
+  margin-bottom: 16px;
+}
+
+mat-card-title mat-chip {
+  margin-left: 24px;
+}
+
+mat-card-content {
+  display: flex ;
+  justify-content: flex-start ;
+  margin-top:24px;
+}
+
+mat-card-content mat-chip {
+  margin-left: 16px;
+  border : 1px solid white ;
+  font-size: 1.1rem;
+}
+
+mat-card-content.members mat-chip:hover {
+  cursor: pointer ;
+  border: 1px solid red;
+}
+
+mat-card-content.teams {
+  display: flex ;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.team {
+  width: 260px;
+}
+
+mat-card.team mat-card-content{
+  display: flex;
+
+}

@@ -1,0 +1,22 @@
+<mat-card >
+    <mat-card-header style="display: flex; justify-content: space-between;">
+        <mat-card-title> {{ targetMember.name }} ( {{ targetMember.unit }}, {{ targetMember.org }} )</mat-card-title>
+        <button
+          mat-mini-fab
+          color="warn"
+          (click)="closeDialog();"
+          >
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <img mat-card-image
+        class="sorting-hat"
+        [src]="imgSrc"
+        alt="Photo of a Shiba Inu"
+        (click)="beginSorting()"
+        >
+    <mat-card-content>
+      <h2 *ngIf="sorting_result"> {{ sorting_result }}</h2>
+    </mat-card-content>
+</mat-card>
