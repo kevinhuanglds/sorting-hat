@@ -4,7 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* npm install 安裝套件
+* 建立 Firestore ，並把相關資訊貼到 src/environments/environment.ts
+  * 相關資訊在：Firebase console / 專案設定。在畫面最下方，選擇 Web 應用程式的 icon，就會出現需要的資訊。
+* ng serve 啟動程式，並在瀏覽器中開啟： http://localhost4200
 
 ## Code scaffolding
 
